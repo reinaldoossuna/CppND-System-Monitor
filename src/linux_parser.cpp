@@ -101,13 +101,13 @@ long LinuxParser::UpTime() {
 long LinuxParser::Jiffies() { return ActiveJiffies() + IdleJiffies(); }
 
 // TODO: Read and return the number of active jiffies for a PID
-long LinuxParser::ActiveJiffies(int pid) {
+float LinuxParser::ActiveJiffies(int pid) {
   std::string line;
   long total_clock = 0;
-  long total_sec = 0;
+  float total_sec = 0;
 
   long uptime = UpTime();
-  long seconds = 0;
+  float seconds = 0;
 
   std::ifstream filestream(kProcDirectory + "/" +
                            std::to_string(pid) +

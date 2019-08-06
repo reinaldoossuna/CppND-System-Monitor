@@ -22,6 +22,7 @@ class System {
   std::string OperatingSystem();      // TODO: See src/system.cpp
 
   void Update();
+  void Clean();
 
   // TODO: Define any necessary private members
  private:

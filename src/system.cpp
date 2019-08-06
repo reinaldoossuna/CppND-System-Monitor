@@ -14,8 +14,18 @@ using std::size_t;
 using std::string;
 using std::vector;
 
-
 System::System(void){
+  Update();
+}
+
+void System::Clean(){
+  processes_.clear();
+  pids.clear();
+}
+
+void System::Update(){
+
+  Clean();
 
   pids = LinuxParser::Pids();
 
@@ -23,7 +33,7 @@ System::System(void){
     processes_.push_back(Process(pid));
   }
   std::sort(processes_.begin(),processes_.end());
-  std::reverse(processes_.begin(),processes_.end());
+  //std::reverse(processes_.begin(),processes_.end());
 }
 
 // TODO: Return the system's CPU
@@ -31,6 +41,7 @@ Processor& System::Cpu() { return cpu_; }
 
 // TODO: Return a container composed of the system's processes
 vector<Process>& System::Processes() { 
+  Update();
   return processes_; }
 
 // DONE: Return the system's kernel identifier (string)

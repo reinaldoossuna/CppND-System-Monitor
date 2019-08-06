@@ -47,7 +47,7 @@ const std::vector<CPUStates> IdleStates{kIdle_,kIOwait_};
 std::vector<std::string> CpuUtilization(std::string = "cpu");
 long Jiffies();
 long ActiveJiffies();
-long ActiveJiffies(int pid);
+float ActiveJiffies(int pid);
 long IdleJiffies();
 
 // Processes
